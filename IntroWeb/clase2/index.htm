@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        main {
+            display: grid;
+            height: 100vh;
+            grid-gap: 10px;
+        }
+
+        main>* {
+            background-color: violet;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+        }
+
+        header {
+            grid-area: header;
+        }
+
+        aside:first-of-type {
+            grid-area: izquierda;
+            background-color: blue;
+        }
+
+        article {
+            grid-area: contenido;
+            background-color: red;
+        }
+
+        aside:last-of-type {
+            grid-area: derecha;
+        }
+
+        footer {
+            grid-area: footer;
+        }
+
+
+        @media (max-width: 500px){
+            main {
+                grid-template-areas: 
+                "header header header"
+                "izquierda contenido derecha"
+                "footer footer footer"
+                ;
+
+                grid-template-columns: 1fr 2fr 1fr;
+                grid-template-rows: 2fr 5fr 1fr;
+
+            }
+        }
+
+
+        @media (min-width: 100px){
+            main {
+                grid-template-areas: 
+                "header header header"
+                "contenido contenido contenido"
+                "footer footer footer"
+                ;
+                grid-template-columns: 1fr 2fr 1fr;
+                grid-template-rows: 1fr 10fr 1fr;
+
+            }
+            aside:first-of-type {
+                grid-area: izquierda;
+                background-color: red;
+            }
+        }
+
+        @media (min-width: 700px){
+            main {
+                grid-template-areas: 
+                "header header header"
+                "izquierda contenido derecha"
+                "footer footer footer"
+                ;
+ 
+                grid-template-columns: 0.5fr 2fr 0.3fr;
+                grid-template-rows: 1fr 5fr 1fr;
+
+            }
+            article {
+                grid-area: contenido;
+                background-color: violet;
+            }
+        }
+
+        
+
+    </style>
+</head>
+
+<body>
+
+
+    <main>
+        <header>header</header>
+        <aside>izquierda</aside>
+        <article>contenido</article>
+        <aside>derecha</aside>
+        <footer>pie de pagina</footer>
+    </main>
+
+</body>
+
+</html>
